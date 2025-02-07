@@ -88,4 +88,10 @@ const tileOptions: TileOptions = {
 
 const name = path.parse(filename).name;
 
-sharp(arrayBuffer).tile(tileOptions).toFile(path.join(outputFolder, name));
+const options = {
+  limitInputPixels: false,
+};
+
+sharp(arrayBuffer, options)
+  .tile(tileOptions)
+  .toFile(path.join(outputFolder, name));
